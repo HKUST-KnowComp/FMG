@@ -1,2 +1,2 @@
 # FMG
-code for fm with group lasso
+The code for the KDD17 paper.
