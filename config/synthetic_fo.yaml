@@ -1,0 +1,30 @@
+# config for yelp dataset
+# exp info
+exp_type: once # once or 5_round
+log_filename: fm_glasso_first_order
+
+# data info
+dt: synthetic # scale of data
+data_dir: data/random_first_order/ # data dir for this exp, dt will be replaced by the dt string in the running time
+train_filename: ratings_train_2.txt
+test_filename: ratings_test_2.txt
+train_X: train_X.txt
+train_Y: train_Y.txt
+test_X: test_X.txt
+test_Y: test_Y.txt
+meta_graphs: ['ratings_only', 'URPSRUB', 'URNSRUB', 'UPBCatB', 'UPBStarsB', 'UPBStateB', 'UPBCityB', 'UPBUB', 'UNBUB', 'UUB'] # meta-graphs used in 
+topK: 500 # topK neighbours saved in meta-graph based similarity computation, used to specify the corresponding user and item latent features.
+
+# Model parameters
+K: 10 # rank of FM
+F: 10 # rank for MF to generate latent features
+initial: 1e-4 # initial factor multiply by initial values of parameters
+bias: 0 # bias used in the FM model
+reg_W: 10 # regularization weight for W
+reg_P: 10 # regularization weight for P
+reg_Q: 10 # regularization weight for Q
+max_iters: 5000 # max iterations in the training process
+ln: 200 # max steps in line search
+eps: 1e-9 # stopping criteria
+eta: 1e-7 # initial step-size
+solver: PG 

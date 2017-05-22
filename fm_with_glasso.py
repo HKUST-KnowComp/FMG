@@ -445,7 +445,6 @@ if __name__ == '__main__':
         init_conifg(dt, lamb, exp_type, eps, K, F)
 
         exp_id = int(time.time())
-        #ite = 2000
         solver = 'acc'
         if exp_type == 1:
             #ite = 3000

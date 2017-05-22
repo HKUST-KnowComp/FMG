@@ -65,7 +65,6 @@ class DataLoader(object):
 
         test_X_sparsity = np.count_nonzero(self.test_X) * 1.0 / self.test_X.size
 
-
     def _generate_feature_files(self):
         meta_graphs = self.config.get('meta_graphs')
         topK = self.config.get('topK')

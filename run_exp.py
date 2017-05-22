@@ -10,27 +10,10 @@ import argparse
 import numpy as np
 import yaml
 
-from fm_homo_poly_kernel import FMHPK
-from fm_anova_kernel import FMAK
 from fm_anova_kernel_glasso import FMAKGL
 
 from data_util import DataLoader
 from logging_util import init_logger
-
-FNORM_VS_GLASSO = 1
-GLASSO_FO_SYN = 2
-GLASSO_SO_SYN = 3
-GLASSO = 4
-FNORM = 5
-BIAS_ETA_TUNE = 6
-
-log_map = {FNORM_VS_GLASSO:'fnorm_vs_glasso',
-           GLASSO_FO_SYN:'glasso_first_syn',
-           GLASSO_SO_SYN:'glasso_second_syn',
-           GLASSO:'glasso',
-           FNORM:'fnorm',
-           BIAS_ETA_TUNE: 'bias_eta_tuning',
-        }
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -45,7 +28,6 @@ def get_args():
     parser.add_argument('-bias_eta', help='learning rate for bias', type=float)
     parser.add_argument('-initial', help='initialization of random starting', type=float)
     parser.add_argument('config',  help='specify the config file')
-    parser.add_argument('run_func',  help='specify which func to run', type=int)
     return parser.parse_args()
 
 def update_configs_by_args(config, args):
@@ -84,26 +66,16 @@ def update_configs(config, args):
     config['bias_eta'] = float(config['bias_eta'])
 
     dt = config['dt']
-    config['data_dir'] = 'data/%s/ex'
-    config['train_filename'] = 'ratings_train_%s.txt' % args.sn
-    config['test_filename'] = 'ratings_test_%s.txt' % args.sn
+    config['data_dir'] = 'data/%s/exp_split/%s/' % (dt, config['sn'])
+    config['train_filename'] = 'ratings_train_%s.txt' % config['sn']
+    config['test_filename'] = 'ratings_test_%s.txt' % config['sn']
 
     update_configs_by_args(config, args)
 
 def set_logfile(config, args):
-    if args.run_func == BIAS_ETA_TUNE:
-        if config.get('reg'):
-            log_filename = 'log/%s_%s_%s_reg%s_bias_eta%s.log' % (config['dt'], config.get('log_filename'), log_map[args.run_func], config.get('reg'), config.get('bias_eta'))
-        else:
-            log_filename = 'log/%s_%s_%s_regW%s_regP%s_bias_eta%s.log' % (config['dt'], config.get('log_filename'), log_map[args.run_func], config.get('reg_W'), config.get('reg_P'), config.get('bias_eta'))
-    else:
-        if config.get('reg'):
-            log_filename = 'log/%s_%s_%s_reg%s.log' % (config['dt'], config.get('log_filename'), log_map[args.run_func], config.get('reg'))
-        else:
-            log_filename = 'log/%s_%s_%s_regW%s_regP%s.log' % (config['dt'], config.get('log_filename'), log_map[args.run_func], config.get('reg_W'), config.get('reg_P'))
+    log_filename = 'log/fmg_%s_%s_split%s.log' % (config['dt'], config['exp_type'], config['sn'])
     config['log_filename'] = log_filename
-    init_logger('exp_%s' % config['exp_id'], config['log_filename'], logging.INFO, False)
-    logging.info('******\n%s\n******', config)
+    init_logger('', config['log_filename'], logging.INFO, False)
 
 def init_exp_configs(config_filename):
     '''
@@ -115,13 +87,14 @@ def init_exp_configs(config_filename):
 
 def run_glasso(config, data_loader):
     print 'run fm glasso..., check the log in %s ...' % config.get('log_filename')
+    logging.info('******\n%s\n******', config)
     run_start = time.time()
     fm_ak_gl = FMAKGL(config, data_loader)
     fm_ak_gl.train()
-    rmses1, maes1 = fm_ak_gl.get_eval_res()
-    cost1 = (time.time() - run_start) / 3600.0
+    rmses, maes = fm_ak_gl.get_eval_res()
+    cost = (time.time() - run_start) / 3600.0
     logging.info('******config*********\n%s\n******', config)
-    logging.info('**********fm_anova_kernel_glasso finish, run once, cost %.2f hours*******\n, rmses: %s, maes: %s\navg rmse=%s, avg mae=%s\n***************', cost1 , rmses1[-5:], maes1[-5:], np.mean(rmses1[-5:]), np.mean(maes1[-5:]))
+    logging.info('**********fm_anova_kernel_glasso finish, run once, cost %.2f hours*******\n, rmses: %s, maes: %s\navg rmse=%s, avg mae=%s\n***************', cost, rmses[-5:], maes[-5:], np.mean(rmses[-5:]), np.mean(maes[-5:]))
 
 def run_reg_varying(config, data_loader):
 
@@ -129,12 +102,11 @@ def run_reg_varying(config, data_loader):
         config['reg_W'] = config['reg_P'] = config['reg_Q'] = reg
         run_glasso(config, data_loader)
 
-def run(args):
+def run():
     '''
         given the train/test files, run for once to see the results
     '''
     args = get_args()
-    run_once(args)
 
     config = init_exp_configs(args.config)
     update_configs(config, args)
@@ -142,8 +114,8 @@ def run(args):
 
     data_loader = DataLoader(config)
 
-    if args.exp == 'vary_reg':
-        run_reg_varying(config)
+    if config['exp_type'] == 'vary_reg':
+        run_reg_varying(config, data_loader)
 
 def run_regsvd(config, data_loader):
     print 'run RegSVD..., check the log in %s ...' % config.get('log_filename')

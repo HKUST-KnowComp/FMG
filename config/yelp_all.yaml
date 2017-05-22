@@ -1,0 +1,25 @@
+# config for experiments on yelp dataset
+# exp info
+exp_type: vary_reg #vary_reg, vary_F, vary_K
+log_filename: all_fm
+
+# data info
+dt: yelp-50k # scale of data
+sn: 1 # exp split
+meta_graphs: ['ratings_only', 'URPSRUB', 'URNSRUB', 'UPBCatB', 'UPBStarsB', 'UPBStateB', 'UPBCityB', 'UPBUB', 'UNBUB', 'UUB', 'URPARUB', 'URNARUB'] # meta-graphs used in 
+topK: 500 # topK neighbours saved in meta-graph based similarity computation, used to specify the corresponding user and item latent features.
+
+# Model parameters
+K: 10 # rank of FM
+F: 10 # rank for MF to generate latent features
+initial: 1e-3 # initial factor multiplied by initial values of parameters
+bias: 0 # bias used in the FM model
+reg_W: 0.5 # regularization weight for W
+reg_P: 0.5 # regularization weight for P
+reg_Q: 0.5 # regularization weight for Q
+max_iters: 1000 # max iterations in the training process
+ln: 1000 # max steps in line search
+eps: 1e-8 # stopping criteria
+eta: 1e-7 # initial step-size
+solver: nmAPG
+bias_eta: 1e-7 # fixed stepsize for bias
