@@ -1,0 +1,9 @@
+data/*
+*.pyc
+baselines/*.txt
+baselines/*.dat
+*.so
+log/*
+*pylint
+*pylints/*
+*test_scripts/*
