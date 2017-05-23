@@ -17,6 +17,7 @@ from logging_util import init_logger
 
 def get_args():
     parser = argparse.ArgumentParser()
+    parser.add_argument('-sn', help='split number, which specify the split data to run, default is 1', default=1, type=int)
     parser.add_argument('-K', help='number of latent features when factorizing P, or Q in FM', type=int)
     parser.add_argument('-reg', help='regularization for all parameters, if given, set all reg otherwise doing nothing', type=float)
     parser.add_argument('-reg_P', help='regularization for P', type=float)
