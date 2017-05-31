@@ -317,7 +317,7 @@ class FMAKGL(object):
         return l_obj, eta, lt, W, P
 
     def _save_paras(self, W, P):
-        split_num = self.config.get('data_dir').split('/')[-2]
+        split_num = self.config['sn']
         dt = self.config.get('dt')
         W_wfilename = 'fm_res/%s_split%s_W_%s_exp%s.txt' % (dt, split_num, self.reg_W, self.exp_id)
         np.savetxt(W_wfilename, W)
