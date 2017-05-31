@@ -1,7 +1,6 @@
 # config for experiments on yelp dataset
 # exp info
 exp_type: vary_reg #vary_reg, vary_F, vary_K
-log_filename: all_fm
 
 # data info
 dt: amazon-50k # scale of data
@@ -17,7 +16,7 @@ bias: 0 # bias used in the FM model
 reg_W: 0.5 # regularization weight for W
 reg_P: 0.5 # regularization weight for P
 reg_Q: 0.5 # regularization weight for Q
-max_iters: 1000 # max iterations in the training process
+max_iters: 10000 # max iterations in the training process
 ln: 1000 # max steps in line search
 eps: 1e-8 # stopping criteria
 eta: 1e-7 # initial step-size
