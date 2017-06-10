@@ -75,6 +75,8 @@ def update_configs(config, args):
 
 def set_logfile(config, args):
     log_filename = 'log/fmg_%s_%s_split%s.log' % (config['dt'], config['exp_type'], config['sn'])
+    if config['exp_type'] == 'vary_mg':
+        log_filename = 'log/fmg_%s_%s_split%s_reg%s.log' % (config['dt'], config['exp_type'], config['sn'], config['reg'])
     config['log_filename'] = log_filename
     init_logger('', config['log_filename'], logging.INFO, False)
 
@@ -97,10 +99,40 @@ def run_glasso(config, data_loader):
     logging.info('******config*********\n%s\n******', config)
     logging.info('**********fm_anova_kernel_glasso finish, run once, cost %.2f hours*******\n, rmses: %s, maes: %s\navg rmse=%s, avg mae=%s\n***************', cost, rmses[-5:], maes[-5:], np.mean(rmses[-5:]), np.mean(maes[-5:]))
 
-def run_reg_varying(config, data_loader):
+def run_vary_mg(config):
+    '''
+        run meta-graph one by one
+    if 'yelp' in filename:
+        ind2mg = {1: 'M1', 2: 'M9', 3: 'M9', 4: 'M4', 5: 'M7', 6: 'M6', 7: 'M5', 8: 'M3', 9: 'M3', 10: 'M2', 11: 'M8', 12: 'M8'}
+    elif 'amazon' in filename:
+        ind2mg = {1: 'M1', 2: 'M6', 3: 'M6', 4: 'M3', 5: 'M4', 6: 'M2', 7: 'M2', 8: 'M5', 9: 'M5'}
+    '''
+    if 'yelp' in config['dt']:
+        mg_inds = [[0], [9], [7,8], [3], [6], [5], [4], [10,11], [1,2]]
+    elif 'amazon' in config['dt']:
+        mg_inds = [[0], [5,6], [3], [4], [7,8], [1,2]]
+    meta_graphs = config['meta_graphs']
+    for inds in mg_inds:
+        config['meta_graphs'] = [meta_graphs[i] for i in inds]
 
-    for reg in [1e-5, 1e-4, 1e-3, 0.01, 0.1, 1.0, 10.0, 100.0]:
+        logging.info('run single meta_graph %s', config['meta_graphs'])
+        data_loader = DataLoader(config)
+        run_glasso(config, data_loader)
+        logging.info('finish single meta_graph %s', config['meta_graphs'])
+
+def run_vary_reg(config, data_loader):
+
+    #for reg in [1e-5, 1e-4, 1e-3, 0.01, 0.05, 0.1, 0.5, 1.0, 10.0, 100.0]:
+    #for reg in [5]:
+    #for reg in [0.01, 0.05, 0.06, 0.1, 0.5, 1.0]:
+    for reg in [1e-5, 1e-4, 1e-3, 0.01, 0.05, 0.1, 0.5, 1.0, 10.0, 100.0]:
         config['reg_W'] = config['reg_P'] = config['reg_Q'] = reg
+        run_glasso(config, data_loader)
+
+def run_vary_K(config, data_loader):
+    #for K in [1,3,5,7,10,15,20,30,40,50]:
+    for K in [100,10]:
+        config['K'] = K
         run_glasso(config, data_loader)
 
 def run():
@@ -113,10 +145,15 @@ def run():
     update_configs(config, args)
     set_logfile(config, args)
 
-    data_loader = DataLoader(config)
 
-    if config['exp_type'] == 'vary_reg':
-        run_reg_varying(config, data_loader)
+    if config['exp_type'] in ['vary_reg', 'mp_vary_reg']:
+        run_vary_reg(config, data_loader)
+    if config['exp_type'] in ['vary_K', 'mp_vary_K']:
+        print 'run %s, check log in %s' % (config['exp_type'], config['log_filename'])
+        run_vary_K(config, data_loader)
+    if config['exp_type'] in ['vary_mg']:
+        print 'run %s, check log in %s' % (config['exp_type'], config['log_filename'])
+        run_vary_mg(config)
 
 def run_regsvd(config, data_loader):
     print 'run RegSVD..., check the log in %s ...' % config.get('log_filename')
