@@ -1,6 +1,6 @@
 # config for experiments on yelp dataset
 # exp info
-exp_type: vary_mg #vary_reg, vary_F, vary_K
+exp_type: vary_reg #vary_reg, vary_F, vary_K
 
 # data info
 dt: amazon-50k # scale of data

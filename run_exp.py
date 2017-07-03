@@ -122,15 +122,11 @@ def run_vary_mg(config):
 
 def run_vary_reg(config, data_loader):
 
-    #for reg in [1e-5, 1e-4, 1e-3, 0.01, 0.05, 0.1, 0.5, 1.0, 10.0, 100.0]:
-    #for reg in [5]:
-    #for reg in [0.01, 0.05, 0.06, 0.1, 0.5, 1.0]:
     for reg in [1e-5, 1e-4, 1e-3, 0.01, 0.05, 0.1, 0.5, 1.0, 10.0, 100.0]:
         config['reg_W'] = config['reg_P'] = config['reg_Q'] = reg
         run_glasso(config, data_loader)
 
 def run_vary_K(config, data_loader):
-    #for K in [1,3,5,7,10,15,20,30,40,50]:
     for K in [100,10]:
         config['K'] = K
         run_glasso(config, data_loader)
