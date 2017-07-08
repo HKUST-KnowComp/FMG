@@ -141,6 +141,7 @@ def run():
     update_configs(config, args)
     set_logfile(config, args)
 
+    data_loader = DataLoader(config)
 
     if config['exp_type'] in ['vary_reg', 'mp_vary_reg']:
         run_vary_reg(config, data_loader)
