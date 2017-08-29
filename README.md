@@ -7,3 +7,5 @@ Extract the files and keep the structure of the directory as it. Remember to put
 
 A typical example is run as: 
 > python run_exp.py config/yelp-50k.yaml -reg 0.5
+
+One may read the comment in config.py for more information.
