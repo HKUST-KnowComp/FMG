@@ -9,3 +9,5 @@ A typical example is run as:
 > python run_exp.py config/yelp-50k.yaml -reg 0.5
 
 One may read the comment in files in directory config for more information.
+
+To run the code sucessfully, you also need to creat the directory "log" in the project.
