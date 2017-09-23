@@ -1,5 +1,5 @@
 # FMG
-The code for the KDD17 paper.
+The code for our KDD17 paper "Meta-Graph Based Recommendation Fusion over Heterogeneous Information Networks"
 
 The Yelp-50K and Amazon-50K are released first: https://www.dropbox.com/s/io915s8mdwph46e/data.zip?dl=0
 
