@@ -152,15 +152,5 @@ def run():
         print 'run %s, check log in %s' % (config['exp_type'], config['log_filename'])
         run_vary_mg(config)
 
-def run_regsvd(config, data_loader):
-    print 'run RegSVD..., check the log in %s ...' % config.get('log_filename')
-    run_start = time.time()
-    fm_ak_gl = MF(config, data_loader)
-    fm_ak_gl.train()
-    rmses1, maes1 = fm_ak_gl.get_eval_res()
-    cost1 = (time.time() - run_start) / 3600.0
-    logging.info('******config*********\n%s\n******', config)
-    logging.info('**********fm_anova_kernel_glasso finish, run once, cost %.2f hours*******\n, rmses: %s, maes: %s\navg rmse=%s, avg mae=%s\n***************', cost1 , rmses1[-5:], maes1[-5:], np.mean(rmses1[-5:]), np.mean(maes1[-5:]))
-
 if __name__ == '__main__':
     run()
