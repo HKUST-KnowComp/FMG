@@ -12,6 +12,6 @@ One may read the comment in files in directory config for more information.
 
 To run the code sucessfully, you also need to 
   
-  1. Put "data" in the project directory.
-  2. Create directory "log" in the project by the command "mkdir log".
-  3. Create directory "fm_res" in the project by the command "mkdir fm_res".
+>1. Put "data" in the project directory.
+>2. Create directory "log" in the project by the command "mkdir log".
+>3. Create directory "fm_res" in the project by the command "mkdir fm_res".
