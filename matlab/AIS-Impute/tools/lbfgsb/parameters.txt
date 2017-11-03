@@ -1,0 +1,24 @@
+maxIter     integer     500     Maximum number of iterations.  Must be >= 0.
+maxFnCall   integer     500     Maximum number of function evaluations.  Must be >= 0.
+m           integer     5       Number of stored gradient.  Must be >= 1.
+relCha      real        1e7*eps Threshold of relative change of function value for termination
+                                criteria.  eps is the smallest positve real number s.t. 1 + eps > 1
+                                Must be > 1e-9.
+tolPG       real        1e-5    Threshold of projected gradient norm for termination criteria.
+                                Must be > 1e-9.
+
+Output results
+Out[1]:     real vector     Solution X
+Out[2]:     real            Objective value at Out[1]
+Out[3]:     int             Number of used iterations.
+Out[4]:     int             Number of used function evaluations.
+Out[5]:     int             Cause of termination:
+                               1  - The problem has been solved.
+                               2  - The relative change of obj value falls below relCha
+                               3  - The norm of projected gradient falls below tolPG.
+                               4  - Number of function calls > maxFnCall.
+                               5  - Number of iterations > maxIter.
+                              -1  - The routine has detected an error in the input parameters.
+                              -2  - The algorithm has terminated abnormally and
+			                        was unable to satisfy the convergence criteria.
+
