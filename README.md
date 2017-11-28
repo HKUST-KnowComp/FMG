@@ -3,13 +3,13 @@ The code for our KDD17 paper "Meta-Graph Based Recommendation Fusion over Hetero
 
 Readers are welcomed to fork this repository to reproduce the experiments and follow our work. Just remmeber to cite our paper
 
-@inproceedings{zhao2017meta,
-  title={Meta-Graph Based Recommendation Fusion over Heterogeneous Information Networks},
-  author={Zhao, Huan and Yao, Quanming and Li, Jianda and Song, Yangqiu and Lee, Dik Lun},
-  booktitle={KDD},
-  pages={635--644},
-  year={2017}
-}
+    @inproceedings{zhao2017meta,
+    title={Meta-Graph Based Recommendation Fusion over Heterogeneous Information Networks},
+    author={Zhao, Huan and Yao, Quanming and Li, Jianda and Song, Yangqiu and Lee, Dik Lun},
+    booktitle={KDD},
+    pages={635--644},
+    year={2017}
+    }
 
 The Yelp-50K and Amazon-50K are released first: https://www.dropbox.com/s/io915s8mdwph46e/data.zip?dl=0
 
