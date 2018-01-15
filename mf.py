@@ -18,7 +18,6 @@ import matplotlib.pyplot as plt
 
 from logging_util import init_logger
 
-#dir_ = 'data/yelp-200k/'
 
 def print_cost(func):
     def wrapper(*args, **kwargs):

@@ -179,7 +179,7 @@ def cal_comm_mat_UUB(path_str, cikm=False):
         adj_uu, adj_uu_t = generate_adj_mat(uu, uid2ind, uid2ind)
 
         start = time.time()
-        UBU = adj_uu.dot(adj_uu_t)
+        UBU = adj_uu.copy()
         print 'UBU(%s), density=%.5f cost %.2f seconds' % (UBU.shape, UBU.nnz * 1.0/UBU.shape[0]/UBU.shape[1], time.time() - start)
 
     elif path_str == 'UCompUB':

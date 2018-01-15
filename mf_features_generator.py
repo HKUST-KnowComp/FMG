@@ -71,7 +71,6 @@ def run(path_str, comb='', K=10):
     wfilename = dir_ + 'mf_features/path_count/%s_item.dat' % (path_str)
     if use_topK:
         wfilename = dir_ + 'mf_features/path_count/%s_top%s_item.dat' % (path_str, topK)
-        #wfilename = dir_ + 'mf_features/path_count/ranks/%s_top%s_F%s_item.dat' % (path_str, topK, K)
     if comb:
         wfilename = dir_ + 'mf_features/path_count/combs/%s_%s_top%s_item.res' % (path_str, comb, topK)
 
@@ -125,16 +124,6 @@ def run_all_amazon_by_rank():
         #    run(path_str, K=K)
         print 'finish processing rank %s, cost %.2fm ' % (K, (time.time() - start) / 60.0)
 
-def run_cikm_yelp():
-    #for path_str in ['UPBUB', 'UNBUB', 'UPBCatBUB', 'UNBCatBUB','UPBCityBUB', 'UNBCityBUB', 'UUB', 'UCompUB']:
-    for path_str in ['ratings_only']:
-        run(path_str)
-
-def run_all_douban():
-    for path_str in ['UBUB', 'UGUB', 'UBDBUB', 'UBABUB', 'UBTBUB', 'ratings_only']:
-    #for path_str in ['ratings_only']:
-        run(path_str)
-
 def run_all_amazon_200k(ratings_only=False):
     if ratings_only:
         run('ratings_only')
@@ -176,17 +165,11 @@ if __name__ == '__main__':
                 run_all_yelp()
             elif 'amazon' in dt:
                 run_all_amazon_200k()
-            elif 'douban' in dt:
-                run_all_douban()
         elif path_str == 'all-rank':
             if 'yelp' in dt:
                 run_all_yelp_by_rank()
             elif 'amazon' in dt:
                 run_all_amazon_by_rank()
-        elif path_str == 'cikm':
-            dir_ = 'data/cikm/yelp/exp_split/%s/' % (split_num)
-            print 'data: %s, path_str: %s' % (dir_, path_str)
-            run_cikm_yelp()
         elif path_str == 'comb':
             if 'yelp' in dt:
                 pass
