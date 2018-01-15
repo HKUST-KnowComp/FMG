@@ -33,7 +33,7 @@ The arguments are explained in the following:
 	1: run for the split dataset 1, i.e., exp_split/1
 One dependent lib is bottleneck, you may install it with "**pip install bottleneck**".
 
-### Meta-graph Latent features generation.
+### Meta-graph Latent Features Generation.
 To generate the latent features by MF based on the simiarity matrices, run
     
     python mf_features_generator.py yelp-50k all 1
