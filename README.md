@@ -22,7 +22,7 @@ For the sake of ease, a quick instruction is given for readers to reproduce the 
 3. Create directory **"log"** in the project by "mkdir log".
 4. Create directory **"fm\_res"** in the project by "mkdir fm\_res".
 
-###Meta-graph Similarity Matrices Computation.
+### Meta-graph Similarity Matrices Computation.
 To generate the similarity matrices on yelp-50k dataset, run
 
 	python 200k_commu_mat_computation.py yelp-50k all 1
@@ -31,6 +31,8 @@ The arguments are explained in the following:
 	yelp-50k: specify the dataset.
 	all: run for all pre-defined meta-graphs.
 	1: run for the split dataset 1, i.e., exp_split/1
+One dependent lib is bottleneck, you may install it with "pip install bottleneck".
+
 ### Meta-graph Latent features generation.
 To generate the latent features by MF based on the simiarity matrices, run
     
