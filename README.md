@@ -11,11 +11,11 @@ Readers are welcomed to fork this repository to reproduce the experiments and fo
     year={2017}
     }
 
-##Instructions
+## Instructions
 
 For the sake of ease, a quick instruction is given for readers to reproduce the whole process on yelp-50k dataset.
 
-###Prerequisites
+### Prerequisites
 
 1. Download the yelp-50k and amazon-50k : https://www.dropbox.com/s/io915s8mdwph46e/data.zip?dl=0
 2. Extract data from zip file and put it in the project, then iteratively create directories **"sim\_res/path\_count"** and **"mf\_features/path\_count"** in directory **"data/yelp-50k/exp_split/1/"**.
@@ -31,7 +31,7 @@ The arguments are explained in the following:
 	yelp-50k: specify the dataset.
 	all: run for all pre-defined meta-graphs.
 	1: run for the split dataset 1, i.e., exp_split/1
-###Meta-graph Latent features generation.
+### Meta-graph Latent features generation.
 To generate the latent features by MF based on the simiarity matrices, run
     
     python mf_features_generator.py yelp-50k all 1
@@ -45,12 +45,12 @@ Note that, to improve the computation efficiency, some modules are implements wi
 
 After the compiling, you will get two files in the project directory "setVal.so" and "partXY.so".
 
-###FMG
+### FMG
 After obtain the latent features, then the readers can run FMG model as following:
     
     python run_exp.py config/yelp-50k.yaml -reg 0.5
 
 One may read the comment in files in directory config for more information.
 
-##Misc
+## Misc
 If you have any questions about this project, you may open issues, thus it can help more people who are interested in this project.
