@@ -13,7 +13,7 @@ Readers are welcomed to fork this repository to reproduce the experiments and fo
 
 ## Instructions
 
-For the sake of ease, a quick instruction is given for readers to reproduce the whole process on yelp-50k dataset. Note that the programs are testd on CentOS release 6.9(Python 2.7.)
+For the sake of ease, a quick instruction is given for readers to reproduce the whole process on yelp-50k dataset. Note that the programs are testd on **Linux(CentOS release 6.9), Python 2.7 from Anaconda 4.3.6.**
 
 ### Prerequisites
 
