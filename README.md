@@ -41,7 +41,7 @@ The arguments are the same as the above ones.
 Note that, to improve the computation efficiency, some modules are implements with C and called in python(see *load_lib* method in mf.py). Thus to successfully run mf\_features\_generator.py, you need to compile two C source files. The following scripts are tested on CentOS, and readers may take as references.
 
 	gcc -fPIC --shared setVal.c -o setVal.so
-	gcc --fPIC --shared partXY.c -o partXY.so
+	gcc -fPIC --shared partXY.c -o partXY.so
 
 After the compiling, you will get two files in the project directory "setVal.so" and "partXY.so".
 
