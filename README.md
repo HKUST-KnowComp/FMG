@@ -10,6 +10,7 @@ Readers are welcomed to fork this repository to reproduce the experiments and fo
     pages={635--644},
     year={2017}
     }
+Note that for convenience, the *yelp-50k* and *amazon-50k* are released in this project. Other versions of datasets are provided by email request.
 
 ## Instructions
 
@@ -17,8 +18,8 @@ For the sake of ease, a quick instruction is given for readers to reproduce the 
 
 ### Prerequisites
 
-1. Download the yelp-50k and amazon-50k : https://www.dropbox.com/s/io915s8mdwph46e/data.zip?dl=0
-2. Extract data from zip file and put it in the project, then iteratively create directories **"sim\_res/path\_count"** and **"mf\_features/path\_count"** in directory **"data/yelp-50k/exp_split/1/"**.
+1. Unzip the file **FMG_released_data.zip**, and create a directory "data" in this project directory.
+2. Move yelp-50k and amazon-50k into the "data" directory, then iteratively create directories **"sim\_res/path\_count"** and **"mf\_features/path\_count"** in directory **"data/yelp-50k/exp_split/1/"**.
 3. Create directory **"log"** in the project by "mkdir log".
 4. Create directory **"fm\_res"** in the project by "mkdir fm\_res".
 
