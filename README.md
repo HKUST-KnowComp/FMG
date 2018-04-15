@@ -56,4 +56,5 @@ After obtain the latent features, then the readers can run FMG model as followin
 One may read the comment in files in directory config for more information.
 
 ## Misc
-If you have any questions about this project, you may open issues, thus it can help more people who are interested in this project.
+If you have any questions about this project, **you can open issues**, thus it can help more people who are interested in this project.
+I will reply to your issues as soon as possible.
