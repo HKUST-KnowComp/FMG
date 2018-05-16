@@ -1,5 +1,5 @@
 # FMG
-The code KDD17 paper "Meta-Graph Based Recommendation Fusion over Heterogeneous Information Networks"
+The code KDD17 paper "[Meta-Graph Based Recommendation Fusion over Heterogeneous Information Networks](http://www.cse.ust.hk/~hzhaoaf/data/kdd17-paper.pdf)"
 
 Readers are welcomed to fork this repository to reproduce the experiments and follow our work. Please kindly cite our paper
 
