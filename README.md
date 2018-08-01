@@ -10,7 +10,7 @@ Readers are welcomed to fork this repository to reproduce the experiments and fo
     pages={635--644},
     year={2017}
     }
-Note that for convenience, we released related datasets: *yelp-200k*, *amazon-200k*, *yelp-50k* and *amazon-50k*. Any problems, you can create an issue.
+We released related datasets: *yelp-200k*, *amazon-200k*, *yelp-50k* and *amazon-50k*. Any problems, you can create an issue. Note that the amazon dataset is provied by Prof. [Julian McAuley](http://cseweb.ucsd.edu/~jmcauley/), thus if you use this dataset for your paper, please cite the authors' paper as instructed in the website http://jmcauley.ucsd.edu/data/amazon/ 
 
 ## Instructions
 
