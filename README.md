@@ -1,5 +1,5 @@
 # FMG
-The code KDD17 paper "[Meta-Graph Based Recommendation Fusion over Heterogeneous Information Networks](http://www.cse.ust.hk/~hzhaoaf/data/kdd17-paper.pdf)"
+The code KDD17 paper "[Meta-Graph Based Recommendation Fusion over Heterogeneous Information Networks](http://www.cse.ust.hk/~hzhaoaf/data/kdd17-paper.pdf)" and Arvix preprint "Learning with Heterogeneous Side Information Fusion for Recommender Systems (https://arxiv.org/pdf/1801.02411.pdf)"
 
 Readers are welcomed to fork this repository to reproduce the experiments and follow our work. Please kindly cite our paper
 
@@ -10,6 +10,14 @@ Readers are welcomed to fork this repository to reproduce the experiments and fo
     pages={635--644},
     year={2017}
     }
+    
+    @techreport{zhao2018learning,
+    title={Learning with Heterogeneous Side Information Fusion for Recommender Systems},
+    author={Zhao, Huan and Yao, Quanming and Song, Yangqiu and Kwok, James and Lee, Dik Lun},
+    institution = {arXiv preprint arXiv:1801.02411},
+    year={2018}
+    }
+    
 We released related datasets: *yelp-200k*, *amazon-200k*, *yelp-50k* and *amazon-50k*. Any problems, you can create an issue. Note that the amazon dataset is provied by Prof. [Julian McAuley](http://cseweb.ucsd.edu/~jmcauley/), thus if you use this dataset for your paper, please cite the authors' paper as instructed in the website http://jmcauley.ucsd.edu/data/amazon/ 
 
 ## Instructions
