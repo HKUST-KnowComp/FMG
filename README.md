@@ -22,7 +22,7 @@ We released related datasets: *yelp-200k*, *amazon-200k*, *yelp-50k* and *amazon
 
 ## Instructions
 
-For the sake of ease, a quick instruction is given for readers to reproduce the whole process on yelp-50k dataset. Note that the programs are testd on **Linux(CentOS release 6.9), Python 2.7 from Anaconda 4.3.6.**
+For the sake of ease, a quick instruction is given for readers to reproduce the whole process on yelp-50k dataset. Note that the programs are testd on **Linux(CentOS release 6.9), Python 2.7 and Numpy 1.14.0 from Anaconda 4.3.6.**
 
 ### Prerequisites
 
