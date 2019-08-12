@@ -11,7 +11,7 @@ Readers are welcomed to fork this repository to reproduce the experiments and fo
     year={2017}
     }
     
-    @techreport{zhao2018learning,
+    @TechnicalReport{zhao2018learning,
     title={Learning with Heterogeneous Side Information Fusion for Recommender Systems},
     author={Zhao, Huan and Yao, Quanming and Song, Yangqiu and Kwok, James and Lee, Dik Lun},
     institution = {arXiv preprint arXiv:1801.02411},
