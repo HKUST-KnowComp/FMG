@@ -1,5 +1,5 @@
 # FMG
-The code KDD17 paper "[Meta-Graph Based Recommendation Fusion over Heterogeneous Information Networks](http://www.cse.ust.hk/~hzhaoaf/data/kdd17-paper.pdf)" and Arvix preprint "[Learning with Heterogeneous Side Information Fusion for Recommender Systems](https://arxiv.org/pdf/1801.02411.pdf)"
+The code KDD17 paper "[Meta-Graph Based Recommendation Fusion over Heterogeneous Information Networks](http://www.cse.ust.hk/~hzhaoaf/data/kdd17-paper.pdf)" and extended journal version "[Learning with Heterogeneous Side Information Fusion for Recommender Systems](https://arxiv.org/pdf/1801.02411.pdf)"
 
 Readers are welcomed to fork this repository to reproduce the experiments and follow our work. Please kindly cite our paper
 
